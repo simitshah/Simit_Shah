@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.example.org/SortOperations/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="SortOperations" targetNamespace="http://www.example.org/SortOperations/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.example.org/SortOperations/">
+      <xsd:element name="BubbleSort">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="in" type="xsd:int" maxOccurs="unbounded" minOccurs="1"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="BubbleSortResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="out" type="xsd:int" maxOccurs="unbounded" minOccurs="1"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="InsertionSort">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="in" type="xsd:int" maxOccurs="unbounded" minOccurs="1"></xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="InsertionSortResponse">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="out" type="xsd:int" maxOccurs="unbounded" minOccurs="1"></xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="SelectionSort">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="in" type="xsd:int" maxOccurs="unbounded" minOccurs="1"></xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="SelectionSortResponse">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="out" type="xsd:int" maxOccurs="unbounded" minOccurs="1"></xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="QuickSort">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="in" type="xsd:int" maxOccurs="unbounded" minOccurs="1"></xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="QuickSortResponse">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="out" type="xsd:int" maxOccurs="unbounded" minOccurs="1"></xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="BubbleSortRequest">
+    <wsdl:part element="tns:BubbleSort" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="BubbleSortResponse">
+    <wsdl:part element="tns:BubbleSortResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="InsertionSortRequest">
+  	<wsdl:part name="parameters" element="tns:InsertionSort"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="InsertionSortResponse">
+  	<wsdl:part name="parameters" element="tns:InsertionSortResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="SelectionSortRequest">
+  	<wsdl:part name="parameters" element="tns:SelectionSort"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="SelectionSortResponse">
+  	<wsdl:part name="parameters" element="tns:SelectionSortResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="QuickSortRequest">
+  	<wsdl:part name="parameters" element="tns:QuickSort"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="QuickSortResponse">
+  	<wsdl:part name="parameters" element="tns:QuickSortResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="SortOperations">
+    <wsdl:operation name="BubbleSort">
+      <wsdl:input message="tns:BubbleSortRequest"/>
+      <wsdl:output message="tns:BubbleSortResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="InsertionSort">
+    	<wsdl:input message="tns:InsertionSortRequest"></wsdl:input>
+    	<wsdl:output message="tns:InsertionSortResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectionSort">
+    	<wsdl:input message="tns:SelectionSortRequest"></wsdl:input>
+    	<wsdl:output message="tns:SelectionSortResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QuickSort">
+    	<wsdl:input message="tns:QuickSortRequest"></wsdl:input>
+    	<wsdl:output message="tns:QuickSortResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SortOperationsSOAP" type="tns:SortOperations">
+  	<soap:binding style="document"
+  		transport="http://schemas.xmlsoap.org/soap/http" />
+  	<wsdl:operation name="BubbleSort">
+  		<soap:operation
+  			soapAction="http://www.example.org/SortOperations/BubbleSort" />
+  		<wsdl:input>
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output>
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  	</wsdl:operation>
+  	<wsdl:operation name="InsertionSort">
+  		<soap:operation
+  			soapAction="http://www.example.org/SortOperations/InsertionSort" />
+  		<wsdl:input>
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output>
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  	</wsdl:operation>
+  	<wsdl:operation name="SelectionSort">
+  		<soap:operation
+  			soapAction="http://www.example.org/SortOperations/SelectionSort" />
+  		<wsdl:input>
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output>
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  	</wsdl:operation>
+  	<wsdl:operation name="QuickSort">
+  		<soap:operation
+  			soapAction="http://www.example.org/SortOperations/QuickSort" />
+  		<wsdl:input>
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output>
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  	</wsdl:operation>
+  </wsdl:binding>
+  
+  <wsdl:service name="SortOperations">
+    <wsdl:port binding="tns:SortOperationsSOAP" name="SortOperationsSOAP">
+      <soap:address location="http://www.example.org/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
